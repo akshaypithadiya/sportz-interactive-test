@@ -13,7 +13,7 @@ function App() {
     const data = await fetch("https://api.npoint.io/d6bd0efc05639084eb17");
     const playerDetails = await data.json();
     const sortedPlayers = playerDetails.playerList.sort((a, b) =>
-      a.Value > b.Value ? 1 : -1
+      parseInt(a.Value) > parseInt(b.Value) ? 1 : -1
     );
     setPlayers(sortedPlayers);
   };
