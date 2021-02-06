@@ -1,0 +1,36 @@
+body {
+  margin: 0px auto;
+  background: #e0e0e0;
+}
+
+.App {
+  text-align: center;
+  margin: 16px;
+}
+
+.player-card {
+  background: #ffffff;
+  border: 1px solid #9e9e9e;
+  border-radius: 4px;
+  margin: 0px auto;
+  display: inline-block;
+  padding: 12px;
+  margin: 12px;
+  text-align: center;
+}
+
+p {
+  line-height: 6px;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+tr,
+td {
+  text-align: left;
+  border: 1px solid black;
+  padding: 6px;
+}
