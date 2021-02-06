@@ -18,17 +18,35 @@ function App() {
     setPlayers(sortedPlayers);
   };
 
+  const dateToLocal = (utcDate) => {
+    var date = new Date(`${utcDate} UTC`);
+    var local =
+      ("00" + (date.getMonth() + 1)).slice(-2) +
+      "/" +
+      ("00" + date.getDate()).slice(-2) +
+      "/" +
+      date.getFullYear() +
+      " " +
+      ("00" + date.getHours()).slice(-2) +
+      ":" +
+      ("00" + date.getMinutes()).slice(-2) +
+      ":" +
+      ("00" + date.getSeconds()).slice(-2);
+
+    return local;
+  };
+
   return (
     <div className="App">
       <form>
         <input
           type="text"
+          className="search-bar"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search player"
+          placeholder="Search Player"
         />
       </form>
-      <br />
       {players
         .filter((player) => {
           if (search == "") {
@@ -76,7 +94,7 @@ function App() {
                 {player.UpComingMatchesList.map((nextMatchTime) => (
                   <td>
                     {nextMatchTime.MDate
-                      ? nextMatchTime.MDate
+                      ? dateToLocal(nextMatchTime.MDate)
                       : "Time Not Avaliable"}
                   </td>
                 ))}
