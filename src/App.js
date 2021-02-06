@@ -55,7 +55,7 @@ function App() {
               </tr>
               <tr>
                 <td>Skill</td>
-                <td>{player.Skill}</td>
+                <td>{player.SkillDesc}</td>
               </tr>
               <tr>
                 <td>Value</td>
