@@ -20,18 +20,22 @@ function App() {
 
   const dateToLocal = (utcDate) => {
     var date = new Date(`${utcDate} UTC`);
+
+    var ampm = date.getHours() >= 12 ? "pm" : "am";
     var local =
       ("00" + (date.getMonth() + 1)).slice(-2) +
-      "/" +
+      "-" +
       ("00" + date.getDate()).slice(-2) +
-      "/" +
+      "-" +
       date.getFullYear() +
       " " +
       ("00" + date.getHours()).slice(-2) +
       ":" +
       ("00" + date.getMinutes()).slice(-2) +
       ":" +
-      ("00" + date.getSeconds()).slice(-2);
+      ("00" + date.getSeconds()).slice(-2) +
+      " " +
+      ampm;
 
     return local;
   };
@@ -84,7 +88,7 @@ function App() {
                 {player.UpComingMatchesList.map((upComingMatches) => (
                   <td>
                     {upComingMatches.CCode
-                      ? `${upComingMatches.CCode} vs ${upComingMatches.VsCCode}`
+                      ? `${upComingMatches.CCode} vs. ${upComingMatches.VsCCode}`
                       : "No Upcoming Matches"}{" "}
                   </td>
                 ))}
